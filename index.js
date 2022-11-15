@@ -9,29 +9,44 @@ const todoList = () => {
   
     const overdue = () => {
       return all.filter((item)=> item.dueDate<new Date().toLocaleDateString("en-CA"));
-    }
+    };
   
     const dueToday = () => {
     return all.filter((item)=> item.dueDate==new Date().toLocaleDateString("en-CA"));    
-}
+};
   
     const dueLater = () => {
       return all.filter((item)=> item.dueDate>new Date().toLocaleDateString("en-CA"));
-    }
+    };
   
-    const toDisplayableList = (list) => {
-      const newArray =  list.map(item=>`${item.completed ? '[x]' : '[ ]'} ${item.title} ${item.dueDate===new Date().toLocaleDateString("en-CA") ? '': item.dueDate}`);
-      //return newArray;
-    
-      //let myString =  JSON.stringify(newArray);
-     
-      let my = String(newArray);
-      my = my.replace(',','\n');
-      return my;
-    }
-  
-    return { all, add, markAsComplete, overdue, dueToday, dueLater, toDisplayableList };
-  }
+  const toDisplayableList = (list) => {
+    // Format the To-Do list here, and return the output string as per the format given above.
+    // FILL YOUR CODE HERE
+    // ..
+    // ..
+    // ..
+    // return OUTPUT_STRING
+
+    return list
+      .map(
+        (todo) =>
+          `${todo.completed ? "[x]" : "[ ]"} ${todo.title} ${
+            todo.dueDate == today ? "" : todo.dueDate
+          }`
+      )
+      .join("\n").trim();
+  };
+
+  return {
+    all,
+    add,
+    markAsComplete,
+    overdue,
+    dueToday,
+    dueLater,
+    toDisplayableList,
+  };
+};
   
   // ####################################### #
   // DO NOT CHANGE ANYTHING BELOW THIS LINE. #
